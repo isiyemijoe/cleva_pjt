@@ -16,6 +16,7 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
   final UsersRepository usersRepository;
 
   Future<void> fetchUsers(Emitter<UsersState> emit) async {
+    emit(UsersLoading());
     final response = await usersRepository.getUsers().catchError((e, ex) {
       emit(UsersLoadingFailed(e.toString()));
     });
