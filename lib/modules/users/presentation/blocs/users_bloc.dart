@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cleva_pjt/modules/users/data/model/user.dart';
 import 'package:cleva_pjt/modules/users/data/repository/users_repository.dart';
 import 'package:meta/meta.dart';
+import 'package:equatable/equatable.dart';
 
 part 'users_event.dart';
 part 'users_state.dart';

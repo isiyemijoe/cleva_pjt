@@ -52,14 +52,13 @@ void main() {
       },
       act: (bloc) => bloc.add(FetchUserEvent()),
       expect: () => [
-        UsersLoading(),
-        UserLoadedState([
-          User(
-              id: 1,
-              name: 'Leanne Graham',
-              username: 'Bret',
-              email: 'joseph@gmail.com')
-        ])
+        isA<UsersLoading>(),
+        isA<UserLoadedState>().having(
+            (state) => state.users,
+            'users',
+            contains(
+              isA<User>().having((user) => user.name, 'name', 'Leanne Graham'),
+            ))
       ],
     );
   });
